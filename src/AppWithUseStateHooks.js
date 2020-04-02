@@ -6,7 +6,7 @@ let switcher = true
 const App = props => {
     const [ personState, setPersonState ] = useState({
         persons: [
-            { name: 'Brian', age: 40 },
+            { name: 'Brian', age: 39 },
             { name: 'Lily', age: 25 },
             { name: 'Cindy', age: 27 }
         ]
@@ -17,7 +17,7 @@ const App = props => {
             switcher = false
             setPersonState ({
                 persons: [
-                    { name: 'Brian', age: 40 },
+                    { name: 'Brian', age: 39 },
                     { name: 'Lily', age: 25 },
                     { name: 'Cindy', age: 27 }
                 ]
@@ -26,7 +26,7 @@ const App = props => {
             switcher = true
             setPersonState ({
                 persons: [
-                    { name: 'BrianOfMoore', age: 40 },
+                    { name: 'BrianOfMoore', age: 39 },
                     { name: 'Lily Nanner', age: 25 },
                     { name: 'Cindy Crawford', age: 27 }
                 ]
@@ -45,7 +45,6 @@ const App = props => {
             <Person
              name={personState.persons[0].name}
              age={personState.persons[0].age}
-             click={switchNameHandler}
              />
              <Person
              name={personState.persons[1].name}
