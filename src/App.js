@@ -1,6 +1,7 @@
 // npm run start \\ npm run build for production
 import React, { useState } from 'react';
 import './App.css';
+import Radium, { StyleRoot } from 'radium'
 import Person from './Person/Person'
 
 const App = props => {
@@ -53,7 +54,10 @@ const App = props => {
         font: 'inherit',
         border: '1px solid blue',
         padding: '8px',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        ':hover': {
+            backgroundColor:'lightgreen'
+        }
     }
 
     let people = null
@@ -71,19 +75,28 @@ const App = props => {
                 })}
             </div>
         )
+
+        style.backgroundColor = 'grey'
+        style[':hover'] = {
+            backgroundColor: 'darkgreen'
+        }
     }
 
+    let classes = ['red', 'bold'].join(' ')
+
     return (
-        <div className="App">
-          <header className="App-header">
-            <button 
-                style={style}
-                onClick={togglePersonsHandler}>Show Names</button>
-              
-            {people}
-          </header>
-        </div>
+        <StyleRoot>
+            <div className="App">
+            <header className="App-header">
+                <button 
+                    style={style}
+                    onClick={togglePersonsHandler}>Show Names</button>
+                
+                {people}
+            </header>
+            </div>
+        </StyleRoot>
     )
 } 
 
-export default App;
+export default Radium(App)
